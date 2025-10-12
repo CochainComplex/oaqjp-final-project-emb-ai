@@ -1,3 +1,6 @@
+"""
+Application based on flask for emotion detection with Watson NLP
+"""
 from flask import Flask, render_template, request
 from EmotionDetection import emotion_detection
 
@@ -5,6 +8,9 @@ app = Flask(__name__)
 
 @app.route("/emotionDetector")
 def emotion_detector():
+    """
+    Analyze emtion from text and return formateted response.
+    """
     text_to_analyze = request.args.get('textToAnalyze')
     result = emotion_detection(text_to_analyze)
 
@@ -30,6 +36,9 @@ def emotion_detector():
 
 @app.route("/")
 def render_index_page():
+    """
+    Base path/entrypoint
+    """
     return render_template('index.html')
 
 if __name__ == '__main__':
