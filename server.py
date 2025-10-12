@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route("/emotionDetector")
 def emotion_detector():
     text_to_analyze = request.args.get('textToAnalyze')
-    
     result = emotion_detection(text_to_analyze)
 
     anger = result['anger']
